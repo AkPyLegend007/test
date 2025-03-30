@@ -1,0 +1,378 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    color: #333;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Container Styling */
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Scoreboard Styling */
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.score-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-player span {
+    font-size: 1.5em;
+    color: #3498db; /* Blue score color */
+    margin-bottom: 5px;
+}
+
+/* Status Message Styling */
+.status {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: 500;
+    min-height: 1.5em;
+    color: #3498db;
+}
+
+/* Board Styling */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px auto;
+    width: max-content;
+}
+
+/* Cell Styling */
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(236, 240, 241, 0.8);
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    user-select: none;
+    color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cell:hover {
+    background-color: rgba(18, 185, 149, 0.8);
+}
+
+.cell:active {
+    transform: scale(0.95);
+}
+
+/* Player Specific Cell Styling (Image Backgrounds) */
+.cell.x {
+    background-image: url('resources/defualt_theme/d_x.png');
+}
+
+.cell.o {
+    background-image: url('resources/defualt_theme/d_o.png');
+}
+
+/* Button Styling */
+#resetButton, #themeToggle {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#resetButton:hover, #themeToggle:hover {
+    background-color: #2980b9;
+}
+
+#resetButton:active, #themeToggle:active {
+    transform: scale(0.98);
+}
+
+/* Dark Theme (General) */
+body.dark-theme {
+    background-color: #222;
+    color: #eee;
+}
+
+body.dark-theme .container {
+    background-color: rgba(51, 51, 51, 0.8);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme h1 {
+    color: #eee;
+}
+
+body.dark-theme .status {
+    color: #6dd5ed;
+}
+
+body.dark-theme .cell {
+    background-color: rgba(68, 68, 68, 0.8);
+}
+
+body.dark-theme .cell:hover {
+    background-color: rgba(74, 30, 116, 0.8);
+}
+
+body.dark-theme #resetButton, body.dark-theme #themeToggle {
+    background-color: #6dd5ed;
+}
+
+body.dark-theme #resetButton:hover, body.dark-theme #themeToggle:hover {
+    background-color: #55a3b8;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+        gap: 5px;
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5em;
+    }
+
+    .container {
+        padding: 20px 30px;
+    }
+}
+
+/* Skin Selector */
+.skin-selector {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.skin-selector label {
+    font-weight: bold;
+}
+
+#skinSelect {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* Retro Skin */
+body.retro {
+    background-color: #333;
+    color: #f0f0f0;
+    background-image: url('resources/retro_theme/r_bg.jpeg');
+}
+
+.retro .container {
+    background-color: rgba(85, 85, 85, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.retro h1 {
+    color: #f0f0f0;
+}
+
+.retro .status {
+    color: #ffcc00;
+}
+
+.retro .cell {
+    background-color: rgba(119, 119, 119, 0.8);
+    border: 2px solid #999;
+}
+
+.retro .cell:hover {
+    background-color: rgba(176, 199, 47, 0.8);
+}
+
+.retro .cell.x {
+    background-image: url('resources/retro_theme/r_x.png');
+}
+
+.retro .cell.o {
+    background-image: url('resources/retro_theme/r_o.png');
+}
+
+.retro #resetButton, .retro #themeToggle {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.retro #resetButton:hover, .retro #themeToggle:hover {
+    background-color: #ffdd33;
+}
+
+/* Neon Skin */
+body.neon {
+    background-color: #000;
+    color: #fff;
+    background-image: url('resources/neon_theme/d_bg.jpeg');
+}
+
+.neon .container {
+    background-color: rgba(17, 17, 17, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.neon h1 {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.neon .status {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.neon .cell {
+    background-color: rgba(34, 34, 34, 0.8);
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.neon .cell:hover {
+    background-color: rgba(51, 51, 51, 0.8);
+}
+
+.neon .cell.x {
+    background-image: url('https://via.placeholder.com/100x100/ff00ff/ffffff?text=Neon+X');
+}
+
+.neon .cell.o {
+    background-image: url('https://via.placeholder.com/100x100/00ff00/ffffff?text=Neon+O');
+}
+
+.neon #resetButton, .neon #themeToggle {
+    background-color: #00ffff;
+    color: #000;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.neon #resetButton:hover, .neon #themeToggle:hover {
+    background-color: #00dddd;
+}
+
+/* Dark Theme Overlay for Retro Skin */
+body.retro.dark-theme {
+    background-color: #222; /* Dark background */
+    color: #eee; /* Light text */
+}
+
+body.retro.dark-theme .container {
+    background-color: rgba(51, 51, 51, 0.8); /* Dark container background */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+body.retro.dark-theme h1 {
+    color: #eee; /* Light heading text */
+}
+
+body.retro.dark-theme .status {
+    color: #6dd5ed; /* Light blue status text */
+}
+
+body.retro.dark-theme .cell {
+    background-color: rgba(68, 68, 68, 0.8); /* Dark cell background */
+}
+
+body.retro.dark-theme .cell:hover {
+    background-color: rgba(85, 85, 85, 0.8); /* Darker cell hover */
+}
+
+body.retro.dark-theme #resetButton, body.retro.dark-theme #themeToggle {
+    background-color: #6dd5ed; /* Light blue button */
+}
+
+body.retro.dark-theme #resetButton:hover, body.retro.dark-theme #themeToggle:hover {
+    background-color: #55a3b8; /* Darker light blue button hover */
+}
+
+/* Dark Theme Overlay for Neon Skin */
+body.neon.dark-theme {
+    background-color: #222; /* Dark background */
+    color: #eee; /* Light text */
+}
+
+body.neon.dark-theme .container {
+    background-color: rgba(51, 51, 51, 0.8); /* Dark container background */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+body.neon.dark-theme h1 {
+    color: #eee; /* Light heading text */
+}
+
+body.neon.dark-theme .status {
+    color: #6dd5ed; /* Light blue status text */
+}
+
+body.neon.dark-theme .cell {
+    background-color: rgba(68, 68, 68, 0.8); /* Dark cell background */
+}
+
+body.neon.dark-theme .cell:hover {
+    background-color: rgba(85, 85, 85, 0.8); /* Darker cell hover */
+}
+
+body.neon.dark-theme #resetButton, body.neon.dark-theme #themeToggle {
+    background-color: #6dd5ed; /* Light blue button */
+}
+
+body.neon.dark-theme #resetButton:hover, body.neon.dark-theme #themeToggle:hover {
+    background-color: #55a3b8; /* Darker light blue button hover */
+}
